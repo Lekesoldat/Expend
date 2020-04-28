@@ -1,0 +1,21 @@
+{
+  "name": "rentspend",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Lekesoldat/rentspend.git",
+  "author": "Magnus Lauritzen Holtet <magnulho@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "frontend": "yarn workspace frontend start",
+    "backend": "yarn workspace backend start",
+    "start": "concurrently --kill-others-on-fail \"yarn backend\"  \"yarn frontend\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn workspace backend dev\"  \"yarn frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
