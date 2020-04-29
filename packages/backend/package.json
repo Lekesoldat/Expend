@@ -2,19 +2,19 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "src",
-  "license": "MIT",
   "type": "module",
+  "license": "MIT",
   "dependencies": {
     "apollo-server": "^2.12.0",
     "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
+    "lodash": "^4.17.15",
     "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.7"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.3"
-  },
   "scripts": {
-    "start": "node --experimental-modules .",
+    "start": "node .",
     "dev": "nodemon --watch 'src/**/*.js' --exec 'node .'"
   }
 }
