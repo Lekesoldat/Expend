@@ -7,8 +7,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-    background: ${(props) => props.theme.baseline};
-    color: ${(props) => props.theme.text.medium_emphasis};
+    background: ${(props) => props.theme.background.paper};
+    color: ${(props) => props.theme.text.primary};
 
     /* iPhone X */
     padding-top: env(safe-area-inset-top);
