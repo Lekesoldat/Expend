@@ -1,9 +1,11 @@
+import faker from "faker";
+import _ from "lodash";
 import Sequelize from "sequelize";
 
 const connect = async () => {
   const db = new Sequelize("postgres://magnusholtet@localhost:5432/rentspend");
   const CategoryModel = db.define(
-    "Category",
+    "category",
     {
       title: {
         type: Sequelize.STRING,
@@ -11,11 +13,13 @@ const connect = async () => {
       },
       description: Sequelize.STRING,
     },
-    { timestamps: false }
+    {
+      timestamps: false,
+    }
   );
 
   const ExpenseModel = db.define(
-    "Expense",
+    "expense",
     {
       title: {
         type: Sequelize.STRING,
@@ -28,7 +32,9 @@ const connect = async () => {
         allowNull: false,
       },
     },
-    { timestamps: false }
+    {
+      timestamps: false,
+    }
   );
 
   CategoryModel.hasMany(ExpenseModel);
@@ -37,8 +43,27 @@ const connect = async () => {
   await db.sync({ alter: true });
   console.log("All models were synchronized successfully.");
 
-  const Category = db.models.Category;
-  const Expense = db.models.Expense;
+  // Mocking
+  const mock = () => {
+    _.times(10, async () => {
+      return await CategoryModel.create({
+        title: faker.commerce.product(),
+        description: faker.lorem.sentence(),
+      }).then((category) => {
+        return category.createExpense({
+          title: faker.commerce.productName(),
+          description: faker.lorem.sentence(),
+          amount: faker.commerce.price(),
+          isSubscription: faker.random.boolean(),
+        });
+      });
+    });
+  };
+
+  // mock();
+
+  const Category = db.models.category;
+  const Expense = db.models.expense;
 
   return { Category, Expense };
 };

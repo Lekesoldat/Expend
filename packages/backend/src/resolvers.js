@@ -6,16 +6,8 @@ const resolve = async () => {
 
   const resolvers = {
     Query: {
-      categories: async () => {
-        const data = await Category.findAll({ include: Expense });
-        console.log(JSON.stringify(data, null, 2));
-        return data;
-      },
-      expenses: async () => {
-        const data = await Expense.findAll({ include: Category });
-        console.log(JSON.stringify(data, null, 2));
-        return data;
-      },
+      categories: async () => await Category.findAll({ include: Expense }),
+      expenses: async () => await Expense.findAll({ include: Category }),
       subscriptions: async () =>
         await Expense.findAll({
           where: {
