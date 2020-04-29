@@ -36,7 +36,7 @@ const Themes = {
 
   dark: {
     background: {
-      default: "#303030",
+      default: "#1f2430",
       paper: "#424242",
     },
 
@@ -55,8 +55,8 @@ const Themes = {
 
     action: {
       active: "#fff",
-      hover: "rgba(255, 255, 255, 0.08",
-      selected: "rgba(255, 255, 255, 0.16",
+      hover: "rgba(255, 255, 255, 0.08)",
+      selected: "rgba(255, 255, 255, 0.16)",
       disabled: "rgba(255, 255, 255, 0.3)",
       disabledBackground: "rgba(255, 255, 255, 0.12)",
     },
@@ -69,5 +69,4 @@ const Themes = {
     },
   },
 };
-
 export default Themes;
