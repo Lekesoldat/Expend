@@ -17,12 +17,14 @@ const Box = styled.div`
 const Display = () => {
   return (
     <>
-      <Box type="primary">I'm a primary box!</Box>
-      <Box type="secondary">I'm a secondary box!</Box>
-      <Box type="error">I'm an error box!</Box>
-      <Box type="warning">I'm a warning box!</Box>
-      <Box type="info">I'm an info box!</Box>
-      <Box type="success">I'm a success box!</Box>
+      <main>
+        <Box type="primary">I'm a primary box!</Box>
+        <Box type="secondary">I'm a secondary box!</Box>
+        <Box type="error">I'm an error box!</Box>
+        <Box type="warning">I'm a warning box!</Box>
+        <Box type="info">I'm an info box!</Box>
+        <Box type="success">I'm a success box!</Box>
+      </main>
     </>
   );
 };
