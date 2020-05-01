@@ -15,8 +15,7 @@ import Home from "./Home";
 
 const Nav = styled.nav`
   top: 0;
-  /* background: ${({ theme }) => theme.background.default}; */
-  background: rgba(0,0,0, 0.1);
+  background: ${({ theme }) => theme.overlay};
   padding-bottom: env(safe-area-inset-bottom);
   font-weight: 600;
   z-index: 1;
@@ -39,15 +38,15 @@ const Nav = styled.nav`
         padding: 1.25rem 1.5rem;
 
         &.active {
-          /* border-bottom: 2px solid ${({ theme }) => theme.secondary}; */
           color: ${({ theme }) => theme.secondary};
         }
       }
     }
   }
 `;
+
 const Header = styled.div`
-  background: rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.overlay};
 
   /* iPhone X */
   padding-top: env(safe-area-inset-top);
@@ -65,6 +64,7 @@ const Header = styled.div`
 `;
 
 const Main = styled.main`
+  display: flex;
   flex: 1;
 `;
 

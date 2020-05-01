@@ -5,6 +5,8 @@ const Themes = {
       paper: "#fff",
     },
 
+    overlay: "rgba(255, 255, 255, 0.9)",
+
     primary: "#a6d4fa",
     secondary: "#f6a5c0",
     error: "#e57373",
@@ -39,6 +41,8 @@ const Themes = {
       default: "#1f2430",
       paper: "#424242",
     },
+
+    overlay: "rgba(0, 0, 0, 0.1)",
 
     primary: "#648dae",
     secondary: "#aa647b",
