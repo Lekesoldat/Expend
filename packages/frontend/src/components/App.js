@@ -15,7 +15,9 @@ import Home from "./Home";
 
 const Nav = styled.nav`
   top: 0;
-  background: ${({ theme }) => theme.background.default};
+  /* background: ${({ theme }) => theme.background.default}; */
+  background: rgba(0,0,0, 0.1);
+  padding-bottom: env(safe-area-inset-bottom);
   font-weight: 600;
   z-index: 1;
 
@@ -37,9 +39,27 @@ const Nav = styled.nav`
         padding: 1.25rem 1.5rem;
 
         &.active {
-          border-bottom: 2px solid ${({ theme }) => theme.secondary};
+          /* border-bottom: 2px solid ${({ theme }) => theme.secondary}; */
+          color: ${({ theme }) => theme.secondary};
         }
       }
+    }
+  }
+`;
+const Header = styled.div`
+  background: rgba(0, 0, 0, 0.1);
+
+  /* iPhone X */
+  padding-top: env(safe-area-inset-top);
+
+  & div {
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem 1.5rem;
+    font-weight: bold;
+
+    & h3 {
+      margin: 0;
     }
   }
 `;
@@ -54,6 +74,24 @@ const App = () => {
       <>
         <GlobalStyles />
         <Router>
+          <Header>
+            <div>
+              <h3>
+                <Switch>
+                  <Route path="/" exact>
+                    Home
+                  </Route>
+                  <Route path="/Categories" exact>
+                    Categories
+                  </Route>
+                  <Route path="/Display" exact>
+                    Display
+                  </Route>
+                </Switch>
+              </h3>
+            </div>
+          </Header>
+
           <Main>
             <Switch>
               <Route path="/" exact component={Home} />

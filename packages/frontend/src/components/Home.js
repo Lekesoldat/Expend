@@ -1,9 +1,11 @@
 import React from "react";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
-      <main>Home</main>
+      <main>
+        <pre>{JSON.stringify(props, null, 2)}</pre>
+      </main>
     </>
   );
 };

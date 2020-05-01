@@ -26,10 +26,9 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     flex: 1;
+    
     /* iPhone X */
-    padding-top: env(safe-area-inset-top);
     padding-right: env(safe-area-inset-right);
-    padding-bottom: env(safe-area-inset-bottom);
     padding-left: env(safe-area-inset-left);
   }
 
