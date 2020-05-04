@@ -6,7 +6,7 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 const client = new ApolloClient({
-  link: new HttpLink({ uri: "http://localhost:4500" }),
+  link: new HttpLink({ uri: "https://expend-app.herokuapp.com/" }),
   cache: new InMemoryCache(),
 });
 
