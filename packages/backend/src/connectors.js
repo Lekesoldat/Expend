@@ -63,7 +63,7 @@ const Categories = [
 ];
 
 const connect = async () => {
-  const db = new Sequelize("postgres://magnusholtet@localhost:5432/rentspend");
+  const db = new Sequelize("postgres://magnusholtet@localhost:5432/expend");
   const CategoryModel = db.define(
     "category",
     {
