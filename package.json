@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "frontend": "yarn workspace frontend start",
+    "frontend:build": "yarn workspace frontend build",
     "backend": "yarn workspace backend start",
     "start": "concurrently --kill-others-on-fail \"yarn backend\"  \"yarn frontend\"",
     "dev": "concurrently --kill-others-on-fail \"yarn workspace backend dev\"  \"yarn frontend\""
