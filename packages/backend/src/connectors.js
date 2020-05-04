@@ -63,7 +63,8 @@ const Categories = [
 ];
 
 const connect = async () => {
-  const db = new Sequelize("postgres://magnusholtet@localhost:5432/expend");
+  const DB_URL = process.env.DATABASE_URL;
+  const db = new Sequelize(DB_URL);
   const CategoryModel = db.define(
     "category",
     {
