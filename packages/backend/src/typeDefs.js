@@ -1,16 +1,26 @@
 import gql from "graphql-tag";
 const typeDefs = gql`
   type Query {
-    categories: [Category!]!
+    expenseCategories: [ExpenseCategory!]!
+    incomeCategories: [IncomeCategory!]!
+    incomes: [Income!]!
     expenses: [Expense!]!
     subscriptions: [Expense!]!
+    regularIncome: [Income!]!
   }
 
-  type Category {
+  type ExpenseCategory {
     id: ID!
     title: String!
     description: String
     expenses: [Expense!]!
+  }
+
+  type IncomeCategory {
+    id: ID!
+    title: String!
+    description: String
+    incomes: [Income!]!
   }
 
   type Expense {
@@ -18,8 +28,17 @@ const typeDefs = gql`
     title: String!
     description: String
     amount: Float!
-    category: Category!
+    category: ExpenseCategory!
     isSubscription: Boolean!
+  }
+
+  type Income {
+    id: ID!
+    title: String!
+    description: String
+    amount: Float!
+    category: IncomeCategory!
+    isRegularIncome: Boolean!
   }
 `;
 

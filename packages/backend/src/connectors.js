@@ -68,8 +68,9 @@ const connect = async () => {
       ? "postgres://magnusholtet@localhost:5432/expend"
       : process.env.DATABASE_URL;
   const db = new Sequelize(DB_URL);
-  const CategoryModel = db.define(
-    "category",
+
+  const ExpenseCategoryModel = db.define(
+    "expenseCategory",
     {
       title: {
         type: Sequelize.STRING,
@@ -94,6 +95,7 @@ const connect = async () => {
       isSubscription: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
+        default: false,
       },
     },
     {
@@ -101,27 +103,66 @@ const connect = async () => {
     }
   );
 
-  CategoryModel.hasMany(ExpenseModel);
-  ExpenseModel.belongsTo(CategoryModel);
+  ExpenseCategoryModel.hasMany(ExpenseModel);
+  ExpenseModel.belongsTo(ExpenseCategoryModel);
+
+  const IncomeCategoryModel = db.define(
+    "incomeCategory",
+    {
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      description: Sequelize.TEXT,
+    },
+    {
+      timestamps: false,
+    }
+  );
+
+  const IncomeModel = db.define(
+    "income",
+    {
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      description: Sequelize.TEXT,
+      amount: Sequelize.FLOAT,
+      isRegularIncome: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        default: false,
+      },
+    },
+    {
+      timestamps: false,
+    }
+  );
+
+  IncomeCategoryModel.hasMany(IncomeModel);
+  IncomeModel.belongsTo(IncomeCategoryModel);
 
   await db.sync({ alter: true });
   console.log("All models were synchronized successfully.");
 
-  const mock = () => {
-    Categories.forEach((category) => {
-      CategoryModel.create({
-        title: category.title,
-        description: category.description,
-      });
-    });
-  };
+  // const mock = () => {
+  //   Categories.forEach((category) => {
+  //     ExpenseCategoryModel.create({
+  //       title: category.title,
+  //       description: category.description,
+  //     });
+  //   });
+  // };
 
   // mock();
 
-  const Category = db.models.category;
+  const ExpenseCategory = db.models.expenseCategory;
   const Expense = db.models.expense;
+  const IncomeCategory = db.models.incomeCategory;
+  const Income = db.models.income;
 
-  return { Category, Expense };
+  return { IncomeCategory, Income, ExpenseCategory, Expense };
 };
 
 export default connect;
