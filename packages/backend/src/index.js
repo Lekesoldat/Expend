@@ -9,7 +9,6 @@ const main = async () => {
   const { resolvers } = await resolve();
 
   const app = express();
-  console.log(app);
 
   app.use(
     cors({
@@ -26,7 +25,7 @@ const main = async () => {
 
   server.applyMiddleware({ app });
 
-  app.listen(process.env.PORT).then(({ url }) => {
+  app.listen({ port: process.env.PORT }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
   });
 };
