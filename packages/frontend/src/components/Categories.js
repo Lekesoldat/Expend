@@ -38,7 +38,7 @@ export const Categories = () => {
   if (!loading) {
     return (
       <Main>
-        {data.categories.map((c) => (
+        {data.expenseCategories.map((c) => (
           <Category>{c.title}</Category>
         ))}
       </Main>
