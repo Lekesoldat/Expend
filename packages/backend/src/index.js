@@ -1,4 +1,4 @@
-import apollo from "apollo-server";
+import apollo from "apollo-server-express";
 import cors from "cors";
 import express from "express";
 import resolve from "./resolvers.js";
