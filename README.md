@@ -8,3 +8,6 @@ Frontend at:
 
 GraphQL backend at (down at the moment):  
 [https://api.expend.holtet.me](https://api.expend.holtet.me)
+
+## Screenshots
+![Dark Mode](https://i.imgur.com/SEahJMW.png) ![Light Mode](https://i.imgur.com/YNS1IdB.png)
