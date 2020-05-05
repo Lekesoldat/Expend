@@ -16,6 +16,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+console.info(`Frontend environment: ${process.env.NODE_ENV}`);
+
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>

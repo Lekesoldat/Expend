@@ -6,8 +6,8 @@ import typeDefs from "./typeDefs.js";
 const { ApolloServer } = apollo;
 
 const main = async () => {
+  console.info(`Backend environment: ${process.env.NODE_ENV}`);
   const { resolvers } = await resolve();
-
   const app = express();
 
   app.use(

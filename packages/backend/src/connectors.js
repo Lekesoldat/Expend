@@ -63,7 +63,6 @@ const Categories = [
 ];
 
 const connect = async () => {
-  console.log(process.env.NODE_ENV);
   const DB_URL =
     process.env.NODE_ENV === "development"
       ? "postgres://magnusholtet@localhost:5432/expend"
