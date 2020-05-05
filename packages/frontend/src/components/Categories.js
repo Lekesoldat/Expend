@@ -4,6 +4,18 @@ import React from "react";
 import { DotLoader } from "react-spinners";
 import styled from "styled-components";
 
+const GRADIENTS = [
+  "linear-gradient(to left, #feb47b, #ff7e5f);",
+
+  "linear-gradient(to left, #7f7fd5, #86a8e7, #91eae4)",
+
+  "linear-gradient(to right, #fbc7d4, #9796f0)",
+
+  "linear-gradient(to left, #86fde8, #acb6e5)",
+
+  "linear-gradient(to right, #ffa751, #ffe259)",
+];
+
 const CATEGORY_QUERY = gql`
   query {
     expenseCategories {
@@ -29,7 +41,8 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: ${({ theme }) => theme.info};
+  /* background: ${({ theme }) => theme.info}; */
+  background: ${({ gradient }) => gradient};
   color: ${({ theme }) => theme.text.primary};
 `;
 
@@ -38,9 +51,10 @@ export const Categories = () => {
   if (!loading) {
     return (
       <Main>
-        {data.expenseCategories.map((c) => (
-          <Category>{c.title}</Category>
-        ))}
+        {data.expenseCategories.map((c) => {
+          const color = GRADIENTS[Math.floor(Math.random() * GRADIENTS.length)];
+          return <Category gradient={color}>{c.title}</Category>;
+        })}
       </Main>
     );
   }
