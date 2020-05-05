@@ -27,7 +27,9 @@ const main = async () => {
 
   app.listen({ port: process.env.PORT }, (data) => {
     console.log(data);
-    console.log(`🚀 Server ready at ${server.graphqlPath}`);
+    console.log(
+      `🚀 Server ready at http://localhost:${process.env.PATH}${server.graphqlPath}`
+    );
   });
 };
 
