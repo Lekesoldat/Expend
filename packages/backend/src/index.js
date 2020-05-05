@@ -25,11 +25,14 @@ const main = async () => {
 
   server.applyMiddleware({ app });
 
-  app.listen({ port: process.env.PORT }, () => {
-    console.log(
-      `🚀 Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`
-    );
-  });
+  app.listen(
+    {
+      port: process.env.NODE_ENV === "development" ? 4500 : process.env.PORT,
+    },
+    () => {
+      console.log(`🚀 Server ready!`);
+    }
+  );
 };
 
 main();

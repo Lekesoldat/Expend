@@ -19,6 +19,6 @@
   },
   "scripts": {
     "start": "node --experimental-modules .",
-    "dev": "nodemon --watch 'src/**/*.js' --exec 'node .'"
+    "dev": "nodemon --watch 'src/**/*.js' --exec 'export NODE_ENV=development && node .'"
   }
 }
