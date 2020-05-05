@@ -18,10 +18,10 @@ const CATEGORY_QUERY = gql`
 `;
 
 const Category = styled.div`
-  border-radius: 0.75rem;
-  box-shadow: ${({ theme }) => theme.box.shadow};
-  padding: 1rem;
-  margin: 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: ${({ theme }) => theme.info};
   color: ${({ theme }) => theme.text.primary};
 `;
@@ -31,11 +31,9 @@ export const Categories = () => {
   if (!loading) {
     return (
       <>
-        <main>
-          {data.categories.map((c) => (
-            <Category>{c.title}</Category>
-          ))}
-        </main>
+        {data.categories.map((c) => (
+          <Category>{c.title}</Category>
+        ))}
       </>
     );
   }
