@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import React from "react";
+import { DotLoader } from "react-spinners";
 import styled from "styled-components";
 
 const CATEGORY_QUERY = gql`
@@ -38,5 +39,5 @@ export const Categories = () => {
       </>
     );
   }
-  return "Loading";
+  return <DotLoader color="#36D7B7" />;
 };

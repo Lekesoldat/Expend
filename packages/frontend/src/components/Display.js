@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import React from "react";
+import { DotLoader } from "react-spinners";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import styled from "styled-components";
 
@@ -64,7 +65,7 @@ const Display = (props) => {
     );
   }
 
-  return null;
+  return <DotLoader color="#36D7B7" />;
 };
 
 export default Display;
