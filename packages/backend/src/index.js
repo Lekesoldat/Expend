@@ -8,7 +8,7 @@ const { ApolloServer } = apollo;
 const main = async () => {
   const { resolvers } = await resolve();
 
-  const app = express();
+  const app = new express();
 
   app.use(
     cors({
