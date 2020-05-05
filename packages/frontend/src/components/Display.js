@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const CATEGORIES_QUERY = gql`
   query {
-    categories {
+    expenseCategories {
       title
       expenses {
         title

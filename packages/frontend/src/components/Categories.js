@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const CATEGORY_QUERY = gql`
   query {
-    categories {
+    expenseCategories {
       id
       title
       description
