@@ -6,7 +6,7 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 const client = new ApolloClient({
-  link: new HttpLink({ uri: "https://api.expend.holtet.me" }),
+  link: new HttpLink({ uri: "http://api.expend.holtet.me" }),
   cache: new InMemoryCache(),
 });
 
