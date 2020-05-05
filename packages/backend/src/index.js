@@ -1,10 +1,20 @@
 import apollo from "apollo-server";
+import cors from "cors";
+import express from "express";
 import resolve from "./resolvers.js";
 import typeDefs from "./typeDefs.js";
 const { ApolloServer } = apollo;
 
 const main = async () => {
   const { resolvers } = await resolve();
+
+  const app = express();
+
+  app.use(
+    cors({
+      origin: "*",
+    })
+  );
 
   const server = new ApolloServer({
     typeDefs,
@@ -13,8 +23,10 @@ const main = async () => {
     introspection: true,
   });
 
-  server.listen(process.env.PORT).then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+  server.applyMiddleware(app);
+
+  app.listen(process.env.PORT).then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
   });
 };
 
