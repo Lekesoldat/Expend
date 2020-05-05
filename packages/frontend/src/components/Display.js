@@ -31,7 +31,6 @@ const Display = (props) => {
 
   if (!loading) {
     // Extract title and total expenses
-    console.log(data);
     const refinedData = data.expenseCategories.map((c) => {
       return {
         name: c["title"],
