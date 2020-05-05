@@ -6,12 +6,11 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 const client = new ApolloClient({
-  // link: new HttpLink({ uri: "https://api.expend.holtet.me/graphql" }),
   link: new HttpLink({
     uri:
       process.env.NODE_ENV === "development"
         ? "http://localhost:4500/graphql"
-        : "https://expend-app.herokuapp.com/graphql",
+        : "https://expend-api.holtet.me/graphql",
   }),
   cache: new InMemoryCache(),
 });
