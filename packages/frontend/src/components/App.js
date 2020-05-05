@@ -7,11 +7,13 @@ import {
   Switch,
 } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
+import useServiceWorker from "../hooks/useServiceWorker";
 import Themes from "../styles/themes/themes";
 import { Categories } from "./Categories";
 import Display from "./Display";
 import { GlobalStyles } from "./GlobalStyles";
 import Home from "./Home";
+import Toast from "./Toast";
 
 const Nav = styled.nav`
   top: 0;
@@ -69,10 +71,18 @@ const Main = styled.main`
 `;
 
 const App = () => {
+  const [waiting, skipWaiting] = useServiceWorker();
   return (
     <ThemeProvider theme={Themes["dark"]}>
       <>
         <GlobalStyles />
+        <Toast
+          show={waiting}
+          onClick={skipWaiting}
+          title="Expend has been updated"
+          description="Press to reload!"
+        />
+
         <Router>
           <Header>
             <div>
