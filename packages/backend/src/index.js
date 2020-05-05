@@ -24,7 +24,7 @@ const main = async () => {
     introspection: true,
   });
 
-  server.applyMiddleware(app);
+  server.applyMiddleware({ app });
 
   app.listen(process.env.PORT).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
