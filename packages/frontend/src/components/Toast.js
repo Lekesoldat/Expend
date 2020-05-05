@@ -5,13 +5,13 @@ import styled from "styled-components";
 const Container = styled.div`
   padding-bottom: env(safe-area-inset-bottom);
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   background: ${({ theme }) => theme.box.background};
   box-shadow: ${({ theme }) => theme.box.shadow};
   transition: all 0.35s ease-in-out;
-  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(100%)")};
+  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(-100%)")};
   opacity: ${(props) => (props.show ? "1" : "0")};
 `;
 
