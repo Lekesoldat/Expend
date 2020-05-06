@@ -40,6 +40,7 @@ const Category = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 
   /* background: ${({ theme }) => theme.info}; */
   background: ${({ gradient }) => gradient};
