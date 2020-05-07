@@ -29,20 +29,17 @@ const CATEGORY_QUERY = gql`
   }
 `;
 
-const Main = styled.div`
-  flex: 1;
+const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: min-content;
 `;
 
 const Category = styled.div`
-  flex: 1;
   display: flex;
+  height: 5rem;
   justify-content: center;
   align-items: center;
-  
-
-  /* background: ${({ theme }) => theme.info}; */
   background: ${({ gradient }) => gradient};
   color: ${({ theme }) => theme.text.primary};
 `;
@@ -51,17 +48,17 @@ export const Categories = () => {
   const { loading, data } = useQuery(CATEGORY_QUERY);
   if (!loading) {
     return (
-      <Main>
+      <Container>
         {data.expenseCategories.map((c) => {
           const color = GRADIENTS[Math.floor(Math.random() * GRADIENTS.length)];
           return <Category gradient={color}>{c.title}</Category>;
         })}
-      </Main>
+      </Container>
     );
   }
   return (
-    <Main>
+    <Container>
       <DotLoader color="#36D7B7" />
-    </Main>
+    </Container>
   );
 };

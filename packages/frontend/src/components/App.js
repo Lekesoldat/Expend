@@ -65,10 +65,11 @@ const Header = styled.div`
   }
 `;
 
-const Main = styled.main`
+const Content = styled.main`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  overflow: auto;
 `;
 
 const App = () => {
@@ -103,13 +104,13 @@ const App = () => {
             </div>
           </Header>
 
-          <Main>
+          <Content>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/Categories" component={Categories} />
               <Route path="/Display" component={Display} />
             </Switch>
-          </Main>
+          </Content>
           <Nav>
             <div className="container">
               <ul>

@@ -143,6 +143,8 @@ const connect = async () => {
   IncomeCategoryModel.hasMany(IncomeModel);
   IncomeModel.belongsTo(IncomeCategoryModel);
 
+  // TODO: SubscriptionModel, ActiveSubscriptions of some sort
+
   await db.sync({ alter: true });
   console.log("All models were synchronized successfully.");
 
