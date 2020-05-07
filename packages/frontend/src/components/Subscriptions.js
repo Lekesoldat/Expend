@@ -21,6 +21,7 @@ const SUBSCRIPTION_QUERY = gql`
     subscriptions {
       id
       icon
+      color
       name
       description
       first_bill
@@ -41,7 +42,7 @@ const Category = styled.div`
   height: 5rem;
   justify-content: center;
   align-items: center;
-  background: ${({ gradient }) => gradient};
+  background: ${({ bg_color }) => bg_color};
   color: ${({ theme }) => theme.text.primary};
 `;
 
@@ -51,8 +52,8 @@ export const Subscriptions = () => {
     return (
       <Container>
         {data.subscriptions.map((s) => {
-          const color = GRADIENTS[Math.floor(Math.random() * GRADIENTS.length)];
-          return <Category gradient={color}>{s.name}</Category>;
+          console.log(s);
+          return <Category bg_color={s.color}>{s.name}</Category>;
         })}
       </Container>
     );

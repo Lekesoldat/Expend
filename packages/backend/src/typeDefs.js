@@ -9,6 +9,7 @@ const typeDefs = gql`
   type Subscription {
     id: ID!
     icon: String!
+    color: String!
     name: String!
     description: String
     first_bill: Date
