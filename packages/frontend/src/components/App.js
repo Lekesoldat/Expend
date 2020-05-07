@@ -9,10 +9,10 @@ import {
 import styled, { ThemeProvider } from "styled-components";
 import useServiceWorker from "../hooks/useServiceWorker";
 import Themes from "../styles/themes/themes";
-import { Categories } from "./Categories";
 import Display from "./Display";
 import { GlobalStyles } from "./GlobalStyles";
 import Home from "./Home";
+import { Subscriptions } from "./Subscriptions";
 import Toast from "./Toast";
 
 const Nav = styled.nav`
@@ -93,8 +93,8 @@ const App = () => {
                   <Route path="/" exact>
                     Home
                   </Route>
-                  <Route path="/Categories" exact>
-                    Categories
+                  <Route path="/Subscriptions" exact>
+                    Subscriptions
                   </Route>
                   <Route path="/Display" exact>
                     Display
@@ -107,7 +107,7 @@ const App = () => {
           <Content>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/Categories" component={Categories} />
+              <Route path="/Subscriptions" component={Subscriptions} />
               <Route path="/Display" component={Display} />
             </Switch>
           </Content>
@@ -120,7 +120,7 @@ const App = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Categories">
+                  <NavLink to="/Subscriptions">
                     <List />
                   </NavLink>
                 </li>

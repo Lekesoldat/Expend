@@ -16,15 +16,16 @@ const GRADIENTS = [
   "linear-gradient(to right, #ffa751, #ffe259)",
 ];
 
-const CATEGORY_QUERY = gql`
+const SUBSCRIPTION_QUERY = gql`
   query {
-    expenseCategories {
+    subscriptions {
       id
-      title
+      icon
+      name
       description
-      expenses {
-        title
-      }
+      first_bill
+      amount
+      active
     }
   }
 `;
@@ -44,14 +45,14 @@ const Category = styled.div`
   color: ${({ theme }) => theme.text.primary};
 `;
 
-export const Categories = () => {
-  const { loading, data } = useQuery(CATEGORY_QUERY);
+export const Subscriptions = () => {
+  const { loading, data } = useQuery(SUBSCRIPTION_QUERY);
   if (!loading) {
     return (
       <Container>
-        {data.expenseCategories.map((c) => {
+        {data.subscriptions.map((s) => {
           const color = GRADIENTS[Math.floor(Math.random() * GRADIENTS.length)];
-          return <Category gradient={color}>{c.title}</Category>;
+          return <Category gradient={color}>{s.name}</Category>;
         })}
       </Container>
     );
