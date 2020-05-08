@@ -1,5 +1,4 @@
 # Expend - Work In Progress
-Expend - A Progressive Web App
 
 > First touch with GraphQL, Sequelize and Postgres. Developing mobile first, so the desktop experience will be prioritized in the early stages.
 
