@@ -1,6 +1,7 @@
 # Expend - Work In Progress
 
-> First touch with GraphQL, Sequelize and Postgres. Developing mobile first, so the desktop experience will be prioritized in the early stages.
+> First touch with Yarn Workspaces, GraphQL, Sequelize and Postgres. Developing mobile first, so the desktop experience will be prioritized in the early stages.
+
 
 ## Installation
 1. Open [https://expend.holtet.me](https://expend.holtet.me) in your browser.
