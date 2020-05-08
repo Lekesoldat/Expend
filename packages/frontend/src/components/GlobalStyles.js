@@ -17,8 +17,8 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: ${(props) => props.theme.background.default};
-    color: ${(props) => props.theme.text.primary};
+    background: ${({ theme }) => theme.background.default};
+    color: ${({ theme }) => theme.text.primary};
   }
 
   #root {

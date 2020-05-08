@@ -66,13 +66,13 @@ const Header = styled.div`
   }
 `;
 
-// TODO: Add centering
 const Content = styled.main`
   padding: 1rem;
+  overflow: auto;
   flex: 1;
+
   display: flex;
   flex-direction: column;
-  overflow: auto;
 `;
 
 const App = () => {
