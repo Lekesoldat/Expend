@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Might have stolen this from @fshauge aswell.
 
 const Container = styled.div`
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
   position: fixed;
   top: 0;
   left: 0;

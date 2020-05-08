@@ -9,10 +9,10 @@ import {
 import styled, { ThemeProvider } from "styled-components";
 import useServiceWorker from "../hooks/useServiceWorker";
 import Themes from "../styles/themes/themes";
-import { Categories } from "./Categories";
 import Display from "./Display";
 import { GlobalStyles } from "./GlobalStyles";
 import Home from "./Home";
+import { Subscriptions } from "./Subscriptions";
 import Toast from "./Toast";
 
 const Nav = styled.nav`
@@ -65,10 +65,13 @@ const Header = styled.div`
   }
 `;
 
-const Main = styled.main`
+// TODO: Add centering
+const Content = styled.main`
+  padding: 1rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  overflow: auto;
 `;
 
 const App = () => {
@@ -92,8 +95,8 @@ const App = () => {
                   <Route path="/" exact>
                     Home
                   </Route>
-                  <Route path="/Categories" exact>
-                    Categories
+                  <Route path="/Subscriptions" exact>
+                    Subscriptions
                   </Route>
                   <Route path="/Display" exact>
                     Display
@@ -103,13 +106,13 @@ const App = () => {
             </div>
           </Header>
 
-          <Main>
+          <Content>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/Categories" component={Categories} />
+              <Route path="/Subscriptions" component={Subscriptions} />
               <Route path="/Display" component={Display} />
             </Switch>
-          </Main>
+          </Content>
           <Nav>
             <div className="container">
               <ul>
@@ -119,7 +122,7 @@ const App = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Categories">
+                  <NavLink to="/Subscriptions">
                     <List />
                   </NavLink>
                 </li>

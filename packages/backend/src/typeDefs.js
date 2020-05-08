@@ -1,44 +1,18 @@
 import gql from "graphql-tag";
 const typeDefs = gql`
   type Query {
-    expenseCategories: [ExpenseCategory!]!
-    incomeCategories: [IncomeCategory!]!
-    incomes: [Income!]!
-    expenses: [Expense!]!
-    subscriptions: [Expense!]!
-    regularIncome: [Income!]!
+    subscriptions: [Subscription!]!
   }
 
-  type ExpenseCategory {
-    id: ID!
-    title: String!
-    description: String
-    expenses: [Expense!]!
-  }
+  scalar Date
 
-  type IncomeCategory {
+  type Subscription {
     id: ID!
-    title: String!
+    name: String!
     description: String
-    incomes: [Income!]!
-  }
-
-  type Expense {
-    id: ID!
-    title: String!
-    description: String
+    first_bill: Date
     amount: Float!
-    category: ExpenseCategory!
-    isSubscription: Boolean!
-  }
-
-  type Income {
-    id: ID!
-    title: String!
-    description: String
-    amount: Float!
-    category: IncomeCategory!
-    isRegularIncome: Boolean!
+    active: Boolean!
   }
 `;
 

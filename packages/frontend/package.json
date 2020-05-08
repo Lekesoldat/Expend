@@ -8,15 +8,18 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "apollo-boost": "^0.4.7",
+    "body-scroll-lock": "^3.0.2",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
+    "react-mobile-picker-scroll": "^0.2.14",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-spinners": "^0.8.3",
     "recharts": "^1.8.5",
+    "simple-icons": "^2.11.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
@@ -39,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/simple-icons": "^2.5.0"
   }
 }
