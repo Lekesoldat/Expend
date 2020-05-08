@@ -1,7 +1,7 @@
 # Expend - Work In Progress
 Expend - A Progressive Web App
 
-> First touch with GraphQL, Sequelize and Postgres. Developing mobile first, so the desktop experience will be the greatest in the early stages.
+> First touch with GraphQL, Sequelize and Postgres. Developing mobile first, so the desktop experience will be prioritized in the early stages.
 
 ## Installation
 1. Open [https://expend.holtet.me](https://expend.holtet.me) in your browser.
@@ -13,4 +13,4 @@ Expend - A Progressive Web App
 ## Screenshots
 |                   Dark Mode                   |                   Light Mode                   |
 | :-------------------------------------------: | :--------------------------------------------: |
-| ![Dark Mode](https://i.imgur.com/SEahJMW.png) | ![Light Mode](https://i.imgur.com/YNS1IdB.png) |
+| ![Dark Mode](https://i.imgur.com/Q6hvmhN.png) | ![Light Mode](https://i.imgur.com/VkVGBNp.png) |
