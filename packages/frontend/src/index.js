@@ -26,4 +26,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.register();
+// Fetch updates every 5th minute.
+serviceWorker.pollUpdates();

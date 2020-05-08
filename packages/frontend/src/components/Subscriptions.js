@@ -34,7 +34,7 @@ const Subscription = styled.div`
   padding: 0.2rem 1rem;
   margin: 0.75rem 0rem;
 
-  border: 1px solid #${({ color }) => color};
+  border: 2px solid #${({ color }) => color};
   border-radius: 0.55rem;
 `;
 
@@ -47,21 +47,20 @@ const Left = styled.div`
   }
 `;
 
+const Icon = styled.div`
+  & svg {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: #${({ color }) => color};
+  }
+`;
+
 const Right = styled.div`
   display: flex;
   align-items: center;
 
   & * {
     padding: 0.3rem;
-    color: #${({ color }) => color};
-  }
-`;
-
-const Icon = styled.div`
-  & svg {
-    height: 1.75rem;
-    width: 1.75rem;
-    fill: #${({ color }) => color};
   }
 `;
 

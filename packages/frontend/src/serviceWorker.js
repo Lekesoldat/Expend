@@ -168,3 +168,13 @@ export function skipWaiting(waiting, onComplete) {
     waiting.postMessage({ type: "SKIP_WAITING" });
   }
 }
+
+export const pollUpdates = () => {
+  if ("serviceWorker" in navigator) {
+    console.log("Now polling updates!");
+
+    navigator.serviceWorker.ready.then((registration) =>
+      setInterval(() => registration.update(), 5 * 60 * 1000)
+    );
+  }
+};
