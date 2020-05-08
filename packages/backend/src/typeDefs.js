@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 const typeDefs = gql`
   type Query {
     subscriptions: [Subscription!]!
+    activeSubscriptions: [Subscription!]!
   }
 
   scalar Date
