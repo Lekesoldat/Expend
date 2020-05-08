@@ -1,27 +1,15 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import React from "react";
+import { Plus } from "react-feather";
 import { DotLoader } from "react-spinners";
+import simpleIcons from "simple-icons";
 import styled from "styled-components";
-
-const GRADIENTS = [
-  "linear-gradient(to left, #feb47b, #ff7e5f);",
-
-  "linear-gradient(to left, #7f7fd5, #86a8e7, #91eae4)",
-
-  "linear-gradient(to right, #fbc7d4, #9796f0)",
-
-  "linear-gradient(to left, #86fde8, #acb6e5)",
-
-  "linear-gradient(to right, #ffa751, #ffe259)",
-];
 
 const SUBSCRIPTION_QUERY = gql`
   query {
     subscriptions {
       id
-      icon
-      color
       name
       description
       first_bill
@@ -37,13 +25,44 @@ const Container = styled.div`
   min-height: min-content;
 `;
 
-const Category = styled.div`
+const Subscription = styled.div`
   display: flex;
-  height: 5rem;
-  justify-content: center;
   align-items: center;
-  background: ${({ bg_color }) => bg_color};
-  color: ${({ theme }) => theme.text.primary};
+  justify-content: space-between;
+
+  height: 4rem;
+  padding: 0.2rem 1rem;
+  margin: 0.75rem 0rem;
+
+  border: 1px solid #${({ color }) => color};
+  border-radius: 0.55rem;
+`;
+
+const Left = styled.div`
+  display: flex;
+  align-items: center;
+
+  & * {
+    padding: 0.3rem;
+  }
+`;
+
+const Right = styled.div`
+  display: flex;
+  align-items: center;
+
+  & * {
+    padding: 0.3rem;
+    color: #${({ color }) => color};
+  }
+`;
+
+const Icon = styled.div`
+  & svg {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: #${({ color }) => color};
+  }
 `;
 
 export const Subscriptions = () => {
@@ -51,9 +70,25 @@ export const Subscriptions = () => {
   if (!loading) {
     return (
       <Container>
-        {data.subscriptions.map((s) => {
-          console.log(s);
-          return <Category bg_color={s.color}>{s.name}</Category>;
+        {data.subscriptions.map((sub) => {
+          const icon = simpleIcons.get(sub.name);
+
+          return (
+            <Subscription key={sub.id} color={icon.hex}>
+              <Left>
+                <Icon
+                  color={icon.hex}
+                  dangerouslySetInnerHTML={{ __html: icon.svg }}
+                />
+
+                <div>{sub.name}</div>
+              </Left>
+
+              <Right>
+                <Plus />
+              </Right>
+            </Subscription>
+          );
         })}
       </Container>
     );

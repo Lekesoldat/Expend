@@ -19,6 +19,7 @@
     "react-scripts": "3.4.1",
     "react-spinners": "^0.8.3",
     "recharts": "^1.8.5",
+    "simple-icons": "^2.11.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/simple-icons": "^2.5.0"
   }
 }

@@ -10,14 +10,6 @@ const connect = async () => {
   const SubscriptionModel = db.define(
     "subscription",
     {
-      icon: {
-        type: Sequelize.TEXT,
-        defaultValue: "dollar-sign",
-      },
-      color: {
-        type: Sequelize.TEXT,
-        defaultValue: "#FFF",
-      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
