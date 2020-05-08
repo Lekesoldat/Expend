@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   html {
     height: 100%;
   }
@@ -35,3 +35,5 @@ export const GlobalStyles = createGlobalStyle`
     overflow: auto;
   }
 `;
+
+export default GlobalStyles;

@@ -9,10 +9,11 @@ import {
 import styled, { ThemeProvider } from "styled-components";
 import useServiceWorker from "../hooks/useServiceWorker";
 import Themes from "../styles/themes/themes";
+import ActiveSubscriptions from "./ActiveSubscriptions";
+import AddSubscription from "./AddSubscription";
 import Display from "./Display";
-import { GlobalStyles } from "./GlobalStyles";
+import GlobalStyles from "./GlobalStyles";
 import Home from "./Home";
-import { Subscriptions } from "./Subscriptions";
 import Toast from "./Toast";
 
 const Nav = styled.nav`
@@ -95,12 +96,9 @@ const App = () => {
                   <Route path="/" exact>
                     Home
                   </Route>
-                  <Route path="/Subscriptions" exact>
-                    Subscriptions
-                  </Route>
-                  <Route path="/Display" exact>
-                    Display
-                  </Route>
+                  <Route path="/Subscriptions">Subscriptions</Route>
+                  <Route path="/Display">Display</Route>
+                  <Route path="/Add">Add</Route>
                 </Switch>
               </h3>
             </div>
@@ -109,8 +107,9 @@ const App = () => {
           <Content>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/Subscriptions" component={Subscriptions} />
+              <Route path="/Subscriptions" component={ActiveSubscriptions} />
               <Route path="/Display" component={Display} />
+              <Route path="/Add" component={AddSubscription} />
             </Switch>
           </Content>
           <Nav>
@@ -132,13 +131,7 @@ const App = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/Reload"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.reload();
-                    }}
-                  >
+                  <NavLink to="/Add">
                     <Plus />
                   </NavLink>
                 </li>
