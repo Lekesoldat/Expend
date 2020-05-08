@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import React from "react";
-import { Plus } from "react-feather";
+import { Check, Plus } from "react-feather";
 import { DotLoader } from "react-spinners";
 import simpleIcons from "simple-icons";
 import styled from "styled-components";
@@ -83,9 +83,7 @@ const AddSubscription = () => {
                 <div>{sub.name}</div>
               </Left>
 
-              <Right>
-                <Plus />
-              </Right>
+              <Right>{sub.active ? <Check /> : <Plus />}</Right>
             </Subscription>
           );
         })}
