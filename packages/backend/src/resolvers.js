@@ -10,6 +10,7 @@ const resolve = async () => {
         await Subscription.findAll({ include: SubscriptionMeta }),
       activeSubscriptions: async () =>
         await Subscription.findAll({
+          include: SubscriptionMeta,
           where: {
             active: {
               [Sequelize.Op.is]: true,

@@ -42,24 +42,9 @@ const connect = async () => {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      repeat_year: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-      repeat_month: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
-        allowNull: false,
-      },
-      repeat_week: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-      repeat_day: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      unit: {
+        type: Sequelize.STRING,
+        defaultValue: "month",
         allowNull: false,
       },
     },

@@ -21,10 +21,7 @@ const typeDefs = gql`
     id: ID!
     start: String!
     interval: Int!
-    repeat_year: Date!
-    repeat_month: Date!
-    repeat_week: Date!
-    repeat_day: Date!
+    unit: String!
     subscription: Subscription!
   }
 `;
