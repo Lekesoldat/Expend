@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import simpleIcons from "simple-icons";
 import styled from "styled-components";
@@ -57,7 +58,43 @@ const Right = styled.div`
   }
 `;
 
-export const ActiveSubscriptionCard = ({ subscription }) => {
+const calculateTotal = ({ amount, subscriptionMeta }) => {
+  const { start, interval, unit } = subscriptionMeta[0];
+  const totalPayments =
+    interval * moment().endOf("day").diff(moment(start, "YYYY-MM-DD"), unit);
+
+  return amount * totalPayments;
+};
+
+const translations = {
+  year: {
+    one: "year",
+    many: (interval) => `${interval} years`,
+  },
+  month: {
+    one: "month",
+    many: (interval) => `${interval} months`,
+  },
+  week: {
+    one: "week",
+    many: (interval) => `${interval} weeks`,
+  },
+  day: {
+    one: "day",
+    many: (interval) => `${interval} day`,
+  },
+};
+
+const translate = ({ unit, interval }) => {
+  console.log(unit, interval);
+  const { one, many } = translations[unit];
+  return interval === 1 ? one : many(interval);
+};
+
+export const ActiveSubscriptionCard = ({
+  subscription,
+  subscription: { subscriptionMeta },
+}) => {
   const icon = simpleIcons.get(subscription.name);
   return (
     <>
@@ -70,13 +107,13 @@ export const ActiveSubscriptionCard = ({ subscription }) => {
 
           <div>
             <h4>{subscription.name}</h4>
-            <p>7500,- total</p>
+            <p>{calculateTotal(subscription)},- total</p>
           </div>
         </Left>
 
         <Right>
           <h4>{subscription.amount},-</h4>
-          <p>every 1 month(s)</p>
+          <p>per {translate(subscriptionMeta[0])}</p>
         </Right>
       </SubscriptionBox>
     </>

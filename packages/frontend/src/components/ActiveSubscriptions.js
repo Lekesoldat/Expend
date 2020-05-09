@@ -13,6 +13,12 @@ const ACTIVE_SUBSCRIPTIONS_QUERY = gql`
       description
       amount
       active
+      subscriptionMeta {
+        id
+        start
+        interval
+        unit
+      }
     }
   }
 `;
@@ -28,9 +34,9 @@ const ActiveSubscriptions = () => {
   if (!loading) {
     return (
       <Container>
-        {data.activeSubscriptions.map((sub) => (
-          <ActiveSubscriptionCard subscription={sub} />
-        ))}
+        {data.activeSubscriptions.map((sub) => {
+          return <ActiveSubscriptionCard key={sub.id} subscription={sub} />;
+        })}
       </Container>
     );
   }
