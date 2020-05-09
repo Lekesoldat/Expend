@@ -96,9 +96,9 @@ const App = () => {
                   <Route path="/" exact>
                     Home
                   </Route>
-                  <Route path="/Subscriptions">Subscriptions</Route>
-                  <Route path="/Display">Display</Route>
-                  <Route path="/Add">Add</Route>
+                  <Route path="/subscriptions">Subscriptions</Route>
+                  <Route path="/display">Display</Route>
+                  <Route path="/add">Add</Route>
                 </Switch>
               </h3>
             </div>
@@ -107,9 +107,9 @@ const App = () => {
           <Content>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/Subscriptions" component={ActiveSubscriptions} />
-              <Route path="/Display" component={Display} />
-              <Route path="/Add" component={AddSubscription} />
+              <Route path="/subscriptions" component={ActiveSubscriptions} />
+              <Route path="/display" component={Display} />
+              <Route path="/add" component={AddSubscription} />
             </Switch>
           </Content>
           <Nav>
@@ -121,17 +121,17 @@ const App = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Subscriptions">
+                  <NavLink to="/subscriptions">
                     <List />
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Display">
+                  <NavLink to="/display">
                     <PieChart />
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Add">
+                  <NavLink to="/add">
                     <Plus />
                   </NavLink>
                 </li>
