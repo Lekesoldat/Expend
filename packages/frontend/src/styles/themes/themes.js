@@ -53,7 +53,7 @@ const Themes = {
 
     text: {
       primary: "#fff",
-      secondary: "rgba(255, 255, 255, 0.7)",
+      secondary: "rgba(255, 255, 255, 0.8)",
       disabled: "rgba(255, 255, 255, 0.5)",
     },
 
