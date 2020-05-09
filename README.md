@@ -13,4 +13,5 @@
 ## Screenshots
 |                   Dark Mode                   |                   Light Mode                   |
 | :-------------------------------------------: | :--------------------------------------------: |
-| ![Dark Mode](https://i.imgur.com/Q6hvmhN.png) | ![Light Mode](https://i.imgur.com/VkVGBNp.png) |
+| ![Dark Mode](https://i.imgur.com/9XSGT4l.png) | ![Light Mode](https://i.imgur.com/nx09W3Z.png) |
+| ![Dark Mode](https://i.imgur.com/nIKuJT0.png) | ![LightMode](https://i.imgur.com/RO2HdZR.png)  |
