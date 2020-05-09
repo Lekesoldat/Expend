@@ -11,6 +11,7 @@
     "body-scroll-lock": "^3.0.2",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
+    "moment": "^2.25.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",

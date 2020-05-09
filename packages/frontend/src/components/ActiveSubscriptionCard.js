@@ -1,5 +1,4 @@
 import React from "react";
-import { Check, Plus } from "react-feather";
 import simpleIcons from "simple-icons";
 import styled from "styled-components";
 
@@ -13,15 +12,23 @@ const SubscriptionBox = styled.div`
   margin: 0.75rem 0rem;
 
   background: #${({ color }) => color};
-  border-radius: 0.55rem;
+  border-radius: 0.35rem;
 `;
 
 const Left = styled.div`
   display: flex;
   align-items: center;
 
-  & * {
-    padding: 0.3rem;
+  & h4 {
+    margin: 0;
+    padding: 0 1rem;
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  & p  {
+    margin: 0;
+    padding: 0 1rem;
+    color: ${({ theme }) => theme.text.secondary};
   }
 `;
 
@@ -35,10 +42,18 @@ const Icon = styled.div`
 
 const Right = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
 
-  & * {
-    padding: 0.3rem;
+  & h4 {
+    margin: 0;
+    font-weight: 500;
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  & p  {
+    margin: 0;
+    color: ${({ theme }) => theme.text.secondary};
   }
 `;
 
@@ -53,10 +68,16 @@ export const ActiveSubscriptionCard = ({ subscription }) => {
             dangerouslySetInnerHTML={{ __html: icon.svg }}
           />
 
-          <div>{subscription.name}</div>
+          <div>
+            <h4>{subscription.name}</h4>
+            <p>7500,- total</p>
+          </div>
         </Left>
 
-        <Right>{subscription.active ? <Check /> : <Plus />}</Right>
+        <Right>
+          <h4>{subscription.amount},-</h4>
+          <p>every 1 month(s)</p>
+        </Right>
       </SubscriptionBox>
     </>
   );

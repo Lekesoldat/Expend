@@ -13,7 +13,7 @@ const SubscriptionBox = styled.div`
   margin: 0.75rem 0rem;
 
   border: 2px solid #${({ color }) => color};
-  border-radius: 0.55rem;
+  border-radius: 0.35rem;
 `;
 
 const Left = styled.div`

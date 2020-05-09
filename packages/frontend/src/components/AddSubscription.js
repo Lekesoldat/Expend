@@ -11,7 +11,6 @@ const SUBSCRIPTION_QUERY = gql`
       id
       name
       description
-      first_bill
       amount
       active
     }
