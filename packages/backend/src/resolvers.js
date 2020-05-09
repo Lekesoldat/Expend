@@ -2,11 +2,12 @@ import Sequelize from "sequelize";
 import connect from "./connectors.js";
 
 const resolve = async () => {
-  const { Subscription } = await connect();
+  const { Subscription, SubscriptionMeta } = await connect();
 
   const resolvers = {
     Query: {
-      subscriptions: async () => await Subscription.findAll(),
+      subscriptions: async () =>
+        await Subscription.findAll({ include: SubscriptionMeta }),
       activeSubscriptions: async () =>
         await Subscription.findAll({
           where: {
@@ -15,6 +16,8 @@ const resolve = async () => {
             },
           },
         }),
+      subscriptionMetas: async () =>
+        await SubscriptionMeta.findAll({ include: Subscription }),
     },
   };
 

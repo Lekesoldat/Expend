@@ -3,17 +3,29 @@ const typeDefs = gql`
   type Query {
     subscriptions: [Subscription!]!
     activeSubscriptions: [Subscription!]!
+    subscriptionMetas: [SubscriptionMeta!]!
   }
-
-  scalar Date
 
   type Subscription {
     id: ID!
     name: String!
     description: String
-    first_bill: Date
     amount: Float!
     active: Boolean!
+    subscriptionMeta: [SubscriptionMeta!]!
+  }
+
+  scalar Date
+
+  type SubscriptionMeta {
+    id: ID!
+    start: String!
+    interval: Int!
+    repeat_year: Date!
+    repeat_month: Date!
+    repeat_week: Date!
+    repeat_day: Date!
+    subscription: Subscription!
   }
 `;
 

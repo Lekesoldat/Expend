@@ -15,14 +15,15 @@ const connect = async () => {
         allowNull: false,
       },
       description: Sequelize.TEXT,
-      first_bill: Sequelize.DATEONLY,
       amount: {
         type: Sequelize.FLOAT,
         defaultValue: 0,
+        allowNull: false,
       },
       active: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+        allowNull: false,
       },
     },
     {
@@ -30,12 +31,53 @@ const connect = async () => {
     }
   );
 
+  const SubscriptionMetaModel = db.define(
+    "subscriptionMeta",
+    {
+      start: {
+        type: Sequelize.DATEONLY,
+        allowNull: false,
+      },
+      interval: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      repeat_year: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      repeat_month: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+        allowNull: false,
+      },
+      repeat_week: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      repeat_day: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+    },
+    {
+      timestamps: false,
+    }
+  );
+
+  SubscriptionModel.hasMany(SubscriptionMetaModel);
+  SubscriptionMetaModel.belongsTo(SubscriptionModel);
+
   await db.sync({ alter: true });
   console.log("All models were synchronized successfully.");
 
   const Subscription = db.models.subscription;
+  const SubscriptionMeta = db.models.subscriptionMeta;
 
-  return { Subscription };
+  return { Subscription, SubscriptionMeta };
 };
 
 export default connect;
