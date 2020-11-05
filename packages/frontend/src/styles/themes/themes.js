@@ -32,7 +32,7 @@ const Themes = {
 
     box: {
       background: "#f8f8f8",
-      shadow: "0 0 0.5rem hsla(0, 0%, 0%, 0.05)",
+      shadow: "0 0 2rem hsla(0, 0%, 0%, 0.05)",
     },
   },
 
@@ -69,7 +69,7 @@ const Themes = {
 
     box: {
       background: "#222",
-      shadow: "0 0 0.5rem hsla(0, 0%, 0%, 0.25)",
+      shadow: "0 0 2rem rgba(0, 0, 0, 0.5)",
     },
   },
 };

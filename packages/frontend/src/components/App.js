@@ -1,5 +1,5 @@
-import React from "react";
-import { Home as HomeIcon, List, PieChart, Plus } from "react-feather";
+import React, { useState } from "react";
+import { Home as HomeIcon, List, PieChart, Plus, X } from "react-feather";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -12,12 +12,48 @@ import Themes from "../styles/themes/themes";
 import ActiveSubscriptions from "./ActiveSubscriptions";
 import AddSubscription from "./AddSubscription";
 import Display from "./Display";
-import GlobalStyles from "./GlobalStyles";
+import GlobalStyle from "./GlobalStyle";
 import Home from "./Home";
+import { Modal } from "./Modal";
 import Toast from "./Toast";
 
+const Container = styled.div`
+  /* Layout */
+  flex: 1;
+  background: ${({ theme }) => theme.background.default};
+
+  /* Flex */
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.25s transform ease-in-out, 0.25s border-radius ease-in-out;
+  border-radius: ${({ scale }) => (scale ? "0.5rem" : "0")};
+
+  transform: ${({ scale }) => (scale ? "scale(0.95)" : "none")};
+  transform-origin: bottom;
+  overflow: hidden;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  background: ${({ theme }) => theme.overlay};
+
+  /* iPhone X */
+  padding-top: env(safe-area-inset-top);
+`;
+
+const Main = styled.main`
+  flex: 1;
+
+  padding: 1rem;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+`;
+
 const Nav = styled.nav`
-  top: 0;
   background: ${({ theme }) => theme.overlay};
   padding-bottom: env(safe-area-inset-bottom);
   font-weight: 600;
@@ -36,9 +72,9 @@ const Nav = styled.nav`
 
       & a {
         display: inline-block;
-        color: ${({ theme }) => theme.text.primary};
         text-decoration: none;
         padding: 1.25rem 1.5rem;
+        color: ${({ theme }) => theme.text.primary};
 
         &.active {
           color: ${({ theme }) => theme.secondary};
@@ -48,39 +84,19 @@ const Nav = styled.nav`
   }
 `;
 
-const Header = styled.div`
-  background: ${({ theme }) => theme.overlay};
-
-  /* iPhone X */
-  padding-top: env(safe-area-inset-top);
-
-  & div {
-    display: flex;
-    justify-content: center;
-    padding: 1.25rem 1.5rem;
-    font-weight: bold;
-
-    & h3 {
-      margin: 0;
-    }
-  }
-`;
-
-const Content = styled.main`
-  padding: 1rem;
-  overflow: auto;
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
+const Clickable = styled.div`
+  width: fit-content;
+  cursor: pointer;
 `;
 
 const App = () => {
   const [waiting, skipWaiting] = useServiceWorker();
+  const [show, setShow] = useState(false);
   return (
     <ThemeProvider theme={Themes["dark"]}>
       <>
-        <GlobalStyles />
+        <GlobalStyle />
+
         <Toast
           show={waiting}
           onClick={skipWaiting}
@@ -89,8 +105,9 @@ const App = () => {
         />
 
         <Router>
-          <Header>
-            <div>
+          <Container scale={show}>
+            {/* HEADER */}
+            <Header>
               <h3>
                 <Switch>
                   <Route path="/" exact>
@@ -101,43 +118,54 @@ const App = () => {
                   <Route path="/add">Add</Route>
                 </Switch>
               </h3>
-            </div>
-          </Header>
+            </Header>
 
-          <Content>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/subscriptions" component={ActiveSubscriptions} />
-              <Route path="/display" component={Display} />
-              <Route path="/add" component={AddSubscription} />
-            </Switch>
-          </Content>
-          <Nav>
-            <div className="container">
-              <ul>
-                <li>
-                  <NavLink exact to="/">
-                    <HomeIcon />
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/subscriptions">
-                    <List />
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/display">
-                    <PieChart />
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/add">
-                    <Plus />
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </Nav>
+            <Modal show={show}>
+              <Clickable>
+                <X color="white" onClick={() => setShow(false)} />
+              </Clickable>
+            </Modal>
+
+            {/* MAIN */}
+            <Main>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/subscriptions" component={ActiveSubscriptions} />
+                <Route path="/display" component={Display} />
+                <Route path="/add" component={AddSubscription} />
+              </Switch>
+            </Main>
+
+            {/* NAVIGATION */}
+            <Nav>
+              <div className="container">
+                <ul>
+                  <li>
+                    <Clickable>
+                      <NavLink exact to="/" onClick={() => setShow(true)}>
+                        <HomeIcon />
+                      </NavLink>
+                    </Clickable>
+                  </li>
+                  <li>
+                    <NavLink to="/subscriptions">
+                      <List />
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/display">
+                      <PieChart />
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/add">
+                      <Plus />
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            </Nav>
+          </Container>
         </Router>
       </>
     </ThemeProvider>

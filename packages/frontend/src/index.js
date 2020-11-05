@@ -23,7 +23,7 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("app-root")
 );
 
 // Fetch updates every 5th minute.
